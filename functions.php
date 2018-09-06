@@ -22,7 +22,6 @@ function custom_front_scripts() {
     wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/main.css',false,'1.0','all');
     // => Charge le style /assets/css/main.css
 
-   
     // wp_enqueue_script permet de charger des fichiers javascript
     // il prend 5 arguments
     // le premier, c'est un nom unique (par exemple : 'scrolly')
@@ -51,6 +50,48 @@ function register_my_menu() {
         'menu-principal' => __( 'Menu Principal' ),
         'menu-footer' => __( 'Menu Footer' ),
         )
-        );
- }
- add_action( 'init', 'register_my_menu' );
+    );
+}
+add_action( 'init', 'register_my_menu' );
+
+// Création de la configuration pour choisir une couleur de fond du header
+function cd_customizer_settings( $wp_customize ) {
+    // La section c'est le premier niveau (le premier lien cliquable)
+    // 'couleurs' est l'identifiant de la section
+    $wp_customize->add_section( 'couleurs' , array(
+        // Le nom de la section
+        'title'      => 'Couleurs',
+        // la priorité permet de classer les sections.
+        // Plus le chiffre est petit, plus la section est affiché au début
+        'priority'   => 30,
+    ) );
+    // On crée un setting, c'est à dire quelque chose qui est réglable
+    // ici, c'est un reglage de couleur ('background_color)
+    $wp_customize->add_setting( 'background_color' , array(
+        // valeur par defaut
+        'default'     => '#2a2f4a',
+        // pour dire de rafraichir la page une fois la couleur selectionnée
+        'transport'   => 'refresh',
+    ) );
+    // On fait maintenant le lien entre le réglage et la section
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
+        // le texte qui est affiché avant le réglage
+        'label'        => 'Couleur de fond du header',
+        // la section
+        'section'    => 'couleurs',
+        // le réglage
+        'settings'   => 'background_color',
+    ) ) );
+}
+add_action( 'customize_register', 'cd_customizer_settings' );
+
+// La valeur de couleur que l'on a réglée va être injectée dans la page HTLM dans une balise <style>
+function cd_customizer_css(){
+    // Le code html que l'on met dans le header :
+    ?>
+         <style type="text/css">
+             #header { background: #<?php echo get_theme_mod('background_color', '#43C6E4'); ?> !important; }
+         </style>
+    <?php
+}
+add_action( 'wp_head', 'cd_customizer_css');
