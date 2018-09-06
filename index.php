@@ -13,7 +13,8 @@
         <!-- on peut utiliser aussi echo get_template_directory_uri(); -->
 		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/css/noscript.css" /></noscript>
-	</head>
+        <?php wp_head(); ?>
+    </head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -212,6 +213,6 @@
 			<script src="<?php bloginfo('template_url'); ?>/assets/js/breakpoints.min.js"></script>
 			<script src="<?php bloginfo('template_url'); ?>/assets/js/util.js"></script>
 			<script src="<?php bloginfo('template_url'); ?>/assets/js/main.js"></script>
-
+            <?php wp_footer(); ?>
 	</body>
 </html>
