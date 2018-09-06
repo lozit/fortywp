@@ -29,15 +29,34 @@
 					</header>
 
 				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
+
+					<?php
+						// On insere un menu à l'aide de wp_nav_menu
+						wp_nav_menu ( array (
+						// ce menu correspond à l'emplacement 'menu-principal'
+						// défini dans functions.php
+						'theme_location' => 'menu-principal' , 
+						// Le type de container global
+						// ici on veut que le menu soit dans une nav
+						'container'       => 'nav',
+						// La class du conteneur global, ici on laisse vide
+						'container_class' => '',
+						// l'ID du conteneur global, ici on met 'menu'
+						'container_id'    => 'menu',
+						// la classe du menu (qui est un 'ul')
+						'menu_class'      => 'links',
+						// l'ID du menu
+						'menu_id'         => '',
+						// à l'interieur de chaque élément li, juste après le <li>
+						'before'          => '',
+						// à l'interieur de chaque élément li, juste avant le </li>
+						'after'           => '',
+						// à l'interieur de chaque élément a, juste après le <a href...>
+						'link_before'     => '',
+						// à l'interieur de chaque élément a, juste avant le </a>
+						'link_after'      => '',
+						//niveau de profondeur d’affichage. 1 n’affiche que le 1er niveau. 
+						// 0 affiche tout. -1 permet de tout afficher sur un seul niveau.
+						'depth'           => 0
+						) );
+					?>

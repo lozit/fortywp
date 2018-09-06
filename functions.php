@@ -1,6 +1,6 @@
 <?php
+// Insertion des feuilles de style et des scripts
 function custom_front_scripts() {
-
     // wp_enqueue_style permet de charger des fichiers css
     // il prend 5 arguments
     // le premier, c'est un nom unique (par exemple : 'layout')
@@ -18,7 +18,7 @@ function custom_front_scripts() {
     // On remarque que l'on peut utiliser la fonction get_stylesheet_uri pour spécifier le chemin
     // L'utilisation du troisième argument permet de dire que cette feuille de style
     // doit être chargée après la feuille de style 'main'
-    
+
     wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/main.css',false,'1.0','all');
     // => Charge le style /assets/css/main.css
 
@@ -40,5 +40,17 @@ function custom_front_scripts() {
     wp_enqueue_script( 'util', get_template_directory_uri() . '/assets/js/util.js', false, 1.0, true);
     wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', false, 1.0, true);
 }
-
 add_action('wp_enqueue_scripts', 'custom_front_scripts' );
+
+// Déclaration des zones de menu
+function register_my_menu() {
+    register_nav_menus(
+        array(
+        // à gauche, l'identifiant du menu
+        // à droite le nom pour l'administration de wordpress
+        'menu-principal' => __( 'Menu Principal' ),
+        'menu-footer' => __( 'Menu Footer' ),
+        )
+        );
+ }
+ add_action( 'init', 'register_my_menu' );
