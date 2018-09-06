@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <!-- bloginfo('template_url') permet d'insérer le chemin vers le repertoire du template -->
         <!-- on peut utiliser aussi echo get_template_directory_uri(); -->
-		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/css/main.css" />
+        <!-- on laisse ce css ici car il est à l'intérieur d'une balise noscript -->
 		<noscript><link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/assets/css/noscript.css" /></noscript>
         <?php wp_head(); ?>
     </head>
@@ -206,13 +206,6 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="<?php bloginfo('template_url'); ?>/assets/js/jquery.min.js"></script>
-			<script src="<?php bloginfo('template_url'); ?>/assets/js/jquery.scrolly.min.js"></script>
-			<script src="<?php bloginfo('template_url'); ?>/assets/js/jquery.scrollex.min.js"></script>
-			<script src="<?php bloginfo('template_url'); ?>/assets/js/browser.min.js"></script>
-			<script src="<?php bloginfo('template_url'); ?>/assets/js/breakpoints.min.js"></script>
-			<script src="<?php bloginfo('template_url'); ?>/assets/js/util.js"></script>
-			<script src="<?php bloginfo('template_url'); ?>/assets/js/main.js"></script>
             <?php wp_footer(); ?>
 	</body>
 </html>
