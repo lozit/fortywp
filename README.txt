@@ -1,9 +1,9 @@
-Ceci est un thème wordpress basé sur le thème Forty fait par HTML5 UP.
-Réalisé dans le but d'apprendre à créer des thèmes wordpress, il n'est pas conseillé de l'utiliser tel quel.
+Ceci est un thÃ¨me wordpress basÃ© sur le thÃ¨me Forty fait par HTML5 UP.
+RÃ©alisÃ© dans le but d'apprendre Ã  crÃ©er des thÃ¨mes wordpress, il n'est pas conseillÃ© de l'utiliser tel quel.
 
 Le site d'HTML5 UP : https://html5up.net/
 
-Voici le README.txt du thème original : 
+Voici le README.txt du thï¿½me original : 
 
 Forty by HTML5 UP
 html5up.net | @ajlkn
